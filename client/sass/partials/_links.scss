@@ -1,0 +1,18 @@
+a {
+	color: inherit;
+	background-color: transparent;
+}
+a.no-underline {
+	text-decoration: none;
+	transition: 0.3s ease all;
+	background-color: rgba(8,9,11,0);
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: -5px;
+	border-radius: 2px;
+	display: inline-block;
+	&:hover {
+		background-color: rgba(8,9,11,0.4);
+		border-radius: 5px;
+	}
+}
