@@ -1,0 +1,26 @@
+div.sidebar
+	div.user
+		img.logo(src="/Logo.png")
+		br
+		h3 Welcome, #{user.first_name}
+		small 
+			a.no-underline(href="#") Settings
+			| &nbsp;|&nbsp;&nbsp;&nbsp;
+			a.no-underline(href="/logout") Logout
+	h3 Current Portfolio
+	div#portfolio
+		ul(:class="{ 'loading' : loading }")
+			li(v-for="stock in portfolio" 
+				:key="stock.ticker" 
+				:class="{ 'negative' : stock.movement==1, 'positive' : stock.movement==2 }"
+				v-if="stock.quantity!=0") 
+				span.ticker {{ stock.ticker }}
+				span.percent {{ stock.percent_change }}
+				span.price {{ stock.price }}
+			li(v-for="stock in cryptos" 
+				:key="stock.ticker" 
+				:class="{ 'negative' : stock.movement==1, 'positive' : stock.movement==2 }"
+				v-if="stock.quantity!=0") 
+				span.ticker {{ stock.ticker }}
+				span.percent {{ stock.percent_change }}
+				span.price {{ stock.price }}
