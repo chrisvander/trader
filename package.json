@@ -23,7 +23,8 @@
     "node-sass": "^4.9.2",
     "postcss": "^7.0.1",
     "pug": "^2.0.3",
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "transaction.js": "^0.1.2-b"
   },
   "devDependencies": {
     "grunt-contrib-watch": "^1.1.0",

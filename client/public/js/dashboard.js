@@ -61,19 +61,3 @@ const portfolio = new Vue({
 
 	}
 });
-
-const trader = new Vue({
-	el: "#trader",
-	data: {
-		button_text: "Start",
-		button_class: ""
-	},
-	methods: {
-		startTrader: () => {
-			if (this.button_text === "Start") {
-				this.button_class = "disabled";
-				this.button_text = "Starting...";
-			}
-		},
-	},
-});

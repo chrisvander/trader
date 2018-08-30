@@ -25,7 +25,7 @@ app.use(cookieParser());
 function verifyAuth(req,res,next) {
 	if (req.cookies.token !== "" && req.cookies.token) {
 		// We have token, start the automated trader
-		// trader(api, req.cookies.token);
+		trader.init(api, req.cookies.token);
 		next();
 	}
 	else res.redirect('/login');
@@ -38,7 +38,7 @@ app.get("/", verifyAuth, (req,res) => robinhood.user(req.cookies.token, (err, ap
 	else {
 		res.cookie("account_id",JSON.parse(body).id);
 		res.render('index', {
-			user: JSON.parse(body),
+			user: JSON.parse(body)
 		});
 	}
 }));
@@ -55,7 +55,6 @@ robinhood.login(req.body.user, req.body.pass, (err, apiRes, body) => {
 			error: JSON.parse(body).non_field_errors
 		});
 	else {
-		console.log(JSON.parse(body).token)
 		robinhood.get(JSON.parse(body).token, "https://api.robinhood.com/accounts/", (errAc, apiResAc, bodyAc) => {
 			res.cookie("userID", JSON.parse(bodyAc).results[0].account_number); 
 			res.cookie("token",JSON.parse(body).token);
