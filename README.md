@@ -1,5 +1,5 @@
 # Crypto Trading Bot
-
+## Currently not functional until Robinhood authorization is figured out.
 This is a system for bot based trading, built on Robinhood.
 
 ## Running
