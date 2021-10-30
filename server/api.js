@@ -10,11 +10,15 @@ module.exports = {
 	robinhood: {
 		login: (user, pass, next) => {
 			request({
-			  uri: "https://api.robinhood.com/api-token-auth/",
+			  uri: "https://api.robinhood.com/oauth2/token/",
 			  method: "POST",
 			  form: {
 			    username: user,
-			    password: pass
+			    password: pass,
+			    grant_type: 'password',
+			    scope: 'internal',
+			    client_id: 'c82SH0WZOsabOXGP2sxqcj34FxkvfnWRZBKlBjFS',
+			    device_token: locals.device_token,
 			  }
 			}, (err, res, body) => next(err, res, body));
 		},

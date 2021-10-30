@@ -3,6 +3,7 @@
 	"alpha_vantage": "",
 	"robinhood": {
 		"user": "",
-		"pass": ""
+		"pass": "",
+    "device_token": ""
 	}
 }
